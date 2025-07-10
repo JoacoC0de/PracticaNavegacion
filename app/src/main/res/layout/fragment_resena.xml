@@ -1,0 +1,50 @@
+<!-- res/layout/fragment_resena.xml -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical" android:layout_width="match_parent" android:layout_height="match_parent"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvPregunta"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Qué tal te pareció las soluciones de [nombre]?"
+        android:textSize="18sp"
+        android:layout_marginBottom="16dp"/>
+
+    <RatingBar
+        android:id="@+id/ratingBar"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:numStars="5"
+        android:stepSize="1"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginBottom="16dp"/>
+
+    <EditText
+        android:id="@+id/etComentario"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Deja un comentario"
+        android:minHeight="80dp"
+        android:layout_marginBottom="24dp"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center">
+
+        <Button
+            android:id="@+id/btnEnviarResena"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Enviar reseña"
+            android:layout_marginEnd="16dp"/>
+
+        <Button
+            android:id="@+id/btnNuncaVino"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Nunca vino"/>
+    </LinearLayout>
+</LinearLayout>

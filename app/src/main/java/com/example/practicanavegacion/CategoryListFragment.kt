@@ -14,7 +14,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.practicanavegacion.databinding.FragmentCategoryListBinding
 import com.example.practicanavegacion.viewmodel.CategoryListViewModel
 import androidx.navigation.fragment.findNavController
-import com.example.practicanavegacion.R
 import com.example.practicanavegacion.model.Category
 
 class CategoryListFragment : Fragment() {

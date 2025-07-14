@@ -1,4 +1,3 @@
-// app/src/main/java/com/Adapter/MessageAdapter.kt
 package com.example.practicanavegacion.ui.adapter
 
 import android.view.LayoutInflater

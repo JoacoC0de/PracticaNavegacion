@@ -7,14 +7,15 @@ import com.example.practicanavegacion.databinding.ItemChatBinding
 import com.example.practicanavegacion.model.ChatResponse
 
 class ChatAdapter(
-    private var chats: List<ChatResponse>
+    private var chats: List<ChatResponse>,
+    private val onChatClick: (ChatResponse) -> Unit
 ) : RecyclerView.Adapter<ChatAdapter.ChatViewHolder>() {
 
     inner class ChatViewHolder(val binding: ItemChatBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(chat: ChatResponse) {
             binding.tvWorkerName.text = chat.workerName
             binding.tvLastMessage.text = chat.lastMessage
-
+            binding.root.setOnClickListener { onChatClick(chat) }
         }
     }
 

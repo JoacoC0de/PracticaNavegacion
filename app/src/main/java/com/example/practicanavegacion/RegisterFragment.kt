@@ -1,4 +1,3 @@
-// app/src/main/java/com/example/practicanavegacion/RegisterFragment.kt
 package com.example.practicanavegacion
 import androidx.navigation.fragment.findNavController
 
@@ -11,7 +10,6 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.example.practicanavegacion.databinding.FragmentRegisterBinding
 import com.example.practicanavegacion.viewmodel.RegisterViewModel
-import kotlin.toString
 
 class RegisterFragment : Fragment() {
     private lateinit var binding: FragmentRegisterBinding

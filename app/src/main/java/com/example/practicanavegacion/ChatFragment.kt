@@ -72,6 +72,8 @@ class ChatFragment : Fragment() {
         binding.btnSend.setOnClickListener {
             val text = binding.etMessage.text.toString().trim()
             if (text.isNotEmpty()) {
+                Log.d("ChatFragment", "Enviando mensaje: appointmentId=${args.appointmentId}, receiverId=${args.receiverId}, texto=$text")
+
                 viewModel.sendMessage(args.appointmentId, text, args.receiverId)
                 binding.etMessage.setText("")
             }
@@ -79,7 +81,7 @@ class ChatFragment : Fragment() {
 
         binding.btnCita.setOnClickListener {
             try {
-                findNavController().navigate(R.id.action_chatFragment_to_seleccionarCitaFragment)
+                findNavController().navigate(R.id.action_chatFragment_to_seleccionarUbicacionFragment)
             } catch (e: Exception) {
                 Toast.makeText(requireContext(), "Error al navegar: ${e.localizedMessage}", Toast.LENGTH_SHORT).show()
                 Log.e("ChatFragment", "Error al navegar", e)

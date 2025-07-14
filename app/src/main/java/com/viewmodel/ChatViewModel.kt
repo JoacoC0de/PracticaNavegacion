@@ -15,26 +15,28 @@ class ChatViewModel(application: Application) : AndroidViewModel(application) {
 
     fun loadChat(appointmentId: Int) {
         viewModelScope.launch {
+            Log.d("ChatViewModel", "Recuperando mensajes: appointmentId=$appointmentId")
             val response = repo.getChat(appointmentId)
             if (response.isSuccessful) {
+                Log.d("ChatViewModel", "Mensajes recibidos: ${response.body()?.size ?: 0}")
                 messages.postValue(response.body() ?: emptyList())
             } else {
+                Log.e("ChatViewModel", "Error al recuperar mensajes: ${response.code()}")
             }
         }
     }
 
     fun sendMessage(appointmentId: Int, content: String, receiverId: Int) {
         viewModelScope.launch {
-            try {
-                val response = repo.sendMessage(appointmentId, content, receiverId)
-                if (response.isSuccessful) {
-                    loadChat(appointmentId)
-                } else {
-                    val errorMsg = response.errorBody()?.string() ?: "No se pudo enviar el mensaje"
-                    error.postValue(errorMsg)
-                }
-            } catch (e: Exception) {
-                error.postValue("Error de red o inesperado al enviar mensaje")
+            Log.d("ChatViewModel", "Enviando mensaje: appointmentId=$appointmentId, receiverId=$receiverId, texto=$content")
+            val response = repo.sendMessage(appointmentId, content, receiverId)
+            if (response.isSuccessful) {
+                Log.d("ChatViewModel", "Mensaje enviado correctamente")
+                loadChat(appointmentId)
+            } else {
+                Log.e("ChatViewModel", "Error al enviar mensaje: ${response.code()}")
+                val errorMsg = response.errorBody()?.string() ?: "No se pudo enviar el mensaje"
+                error.postValue(errorMsg)
             }
         }
     }
